@@ -7,7 +7,6 @@ const links = [
   { href: '#projects', label: 'Projects' },
   { href: '#training', label: 'Training' },
   { href: '#services', label: 'Services' },
-  { href: '#contact', label: 'Contact' },
 ]
 
 export default function Navbar() {
