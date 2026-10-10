@@ -28,7 +28,7 @@ const projects = [
     ],
     result: 'Best model: 80.55% accuracy and 0.8419 ROC-AUC',
     image: null,
-    github: null,
+    github: 'https://github.com/mariamezayed2006-eng/customer-churn-ai',
     demo: null,
   },
   {
@@ -48,7 +48,7 @@ const projects = [
     ],
     dataset: 'supermart.csv',
     image: null,
-    github: null,
+    github: 'https://github.com/Janawaleed1/Smart-Business-Analyst',
     demo: null,
   },
   {
@@ -64,7 +64,7 @@ const projects = [
     ],
     workflow: ['Topic', 'Research Plan', 'Sources', 'Analysis', 'Critique', 'Final Report'],
     image: null,
-    github: null,
+    github: 'https://github.com/mariamezayed2006-eng/ResearchFlow-AI',
     demo: null,
   },
   {
@@ -79,7 +79,7 @@ const projects = [
     ],
     analyzes: ['UX', 'Content', 'Navigation', 'SEO', 'Accessibility', 'Trust'],
     image: null,
-    github: null,
+    github: 'https://github.com/mariamezayed2006-eng/website-strength-weakness-analyzer',
     demo: null,
   },
 ]

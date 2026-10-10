@@ -10,9 +10,8 @@ import contact from '../data/contact.js'
  * Numbering is automatic via the map index.
  * Scales to 5, 6, 10+ projects with no component changes.
  *
- * Note: per-project `github` fields in the data are currently empty,
- * so cards show no per-project repo buttons (nothing invented).
- * The profile link below uses the genuine GitHub URL from contact data.
+ * Each card links directly to its own GitHub repository via the
+ * per-project `github` field — no shared URLs, nothing invented.
  */
 export default function Projects() {
   return (

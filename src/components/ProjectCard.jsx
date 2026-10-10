@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import { ChevronDown, Award, Database, GitBranch, ExternalLink, Code2, Check } from 'lucide-react'
+import { Award, Database, GitBranch, ExternalLink, Code2, Check } from 'lucide-react'
 
 /**
  * Reusable project card. All numbering comes from the `index` prop
@@ -8,7 +7,6 @@ import { ChevronDown, Award, Database, GitBranch, ExternalLink, Code2, Check } f
  * when truthy. No empty buttons or placeholders are shown.
  */
 export default function ProjectCard({ project, index }) {
-  const [expanded, setExpanded] = useState(index === 0)
   const number = String(index + 1).padStart(2, '0')
 
   return (
@@ -88,37 +86,25 @@ export default function ProjectCard({ project, index }) {
           </div>
         ) : null}
 
-        <div className={expanded ? 'mt-4' : 'mt-4 hidden'}>
-          {expanded && (
-            <ul className="space-y-2 rounded-lg border border-cream/10 bg-night/60 p-4">
-              {project.features.map((f) => (
-                <li key={f} className="flex items-start gap-2 text-sm text-cream/80">
-                  <Check size={15} className="mt-0.5 shrink-0 text-lav" />
-                  {f}
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
+        <ul className="mt-4 space-y-2 rounded-lg border border-cream/10 bg-night/60 p-4">
+          {project.features.map((f) => (
+            <li key={f} className="flex items-start gap-2 text-sm text-cream/80">
+              <Check size={15} className="mt-0.5 shrink-0 text-lav" />
+              {f}
+            </li>
+          ))}
+        </ul>
 
         <div className="mt-auto flex flex-wrap items-center gap-2.5 pt-5">
-          <button
-            onClick={() => setExpanded((v) => !v)}
-            aria-expanded={expanded}
-            className="inline-flex min-h-[40px] items-center gap-1.5 rounded-lg bg-cream px-4 py-2 text-sm font-semibold text-night transition-colors hover:bg-mauve"
-          >
-            {expanded ? 'Hide details' : 'View details'}
-            <ChevronDown size={15} className={`transition-transform ${expanded ? 'rotate-180' : ''}`} />
-          </button>
           {project.github ? (
             <a
               href={project.github}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex min-h-[40px] items-center gap-1.5 rounded-lg border border-lav/60 px-4 py-2 text-sm font-medium text-cream transition-colors hover:border-cream"
+              className="inline-flex min-h-[44px] items-center gap-1.5 rounded-lg bg-cream px-5 py-2.5 text-sm font-semibold text-night transition-colors hover:bg-mauve"
             >
-              <Code2 size={15} />
-              Code
+              <Code2 size={16} />
+              View on GitHub
             </a>
           ) : null}
           {project.demo ? (
