@@ -3,11 +3,12 @@
 @theme {
   --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
   --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --color-ink: #0a0a14;
-  --color-panel: #10101e;
-  --color-primary: #8b5cf6;
-  --color-primary-deep: #7c3aed;
-  --color-accent: #22d3ee;
+  --color-night: #292c3d;
+  --color-deepslate: #4c5372;
+  --color-lav: #7c7e9d;
+  --color-fog: #949ab1;
+  --color-cream: #fffdf6;
+  --color-mauve: #e2d4e0;
 }
 
 html {
@@ -15,8 +16,8 @@ html {
 }
 
 body {
-  background-color: #0a0a14;
-  color: #f4f2ff;
+  background-color: #292c3d;
+  color: #fffdf6;
   font-family: var(--font-body);
   overflow-x: hidden;
 }
@@ -28,7 +29,8 @@ h3 {
 }
 
 ::selection {
-  background: rgba(139, 92, 246, 0.4);
+  background: rgba(226, 212, 224, 0.9);
+  color: #292c3d;
 }
 
 /* Subtle scrollbar */
@@ -36,14 +38,14 @@ h3 {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #0a0a14;
+  background: #292c3d;
 }
 ::-webkit-scrollbar-thumb {
-  background: #2e2e4a;
+  background: rgba(124, 126, 157, 0.5);
   border-radius: 8px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #8b5cf6;
+  background: #7c7e9d;
 }
 
 /* Reveal on scroll */
@@ -57,6 +59,48 @@ h3 {
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ---- Editorial background patterns (exact palette, low opacity only) ---- */
+
+/* Fine drafting grid — milky beige lines */
+.bg-grid-faint {
+  background-image:
+    linear-gradient(to right, rgba(255, 253, 246, 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 253, 246, 0.055) 1px, transparent 1px);
+  background-size: 54px 54px;
+}
+
+/* Dot texture — milky beige dots */
+.bg-dots-faint {
+  background-image: radial-gradient(rgba(255, 253, 246, 0.1) 1.1px, transparent 1.4px);
+  background-size: 22px 22px;
+}
+
+/* Diagonal pinstripe — slate lavender hairlines */
+.bg-pinstripe-faint {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(124, 126, 157, 0.16) 0 1px,
+    transparent 1px 14px
+  );
+}
+
+/* Soft layered wash for the hero — deep slate tonal shift, no glow */
+.hero-wash {
+  background:
+    radial-gradient(52rem 26rem at 82% -12%, rgba(76, 83, 114, 0.55), transparent 62%),
+    linear-gradient(to bottom, rgba(226, 212, 224, 0.05), transparent 46%);
+}
+
+/* Edge fades so patterns dissolve instead of clipping */
+.mask-fade-edges {
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 12%, black 82%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, black 12%, black 82%, transparent);
+}
+.mask-fade-b {
+  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent);
+  mask-image: linear-gradient(to bottom, black 50%, transparent);
 }
 
 @media (prefers-reduced-motion: reduce) {

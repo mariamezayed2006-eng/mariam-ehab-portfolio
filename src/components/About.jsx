@@ -1,6 +1,6 @@
-import { User, Compass } from 'lucide-react'
 import SectionHeading from './SectionHeading.jsx'
 import Reveal from './Reveal.jsx'
+import journey from '../data/journey.js'
 
 const strengths = [
   'Fast learner',
@@ -17,57 +17,42 @@ const strengths = [
 
 export default function About() {
   return (
-    <section id="about" className="scroll-mt-20">
-      <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
-        <SectionHeading
-          eyebrow="// 01. About"
-          title="About Me"
-          description="Computer Science student focused on turning AI concepts into working, practical projects."
-        />
-        <div className="grid gap-6 lg:grid-cols-2">
+    <section id="about" className="relative scroll-mt-20 overflow-hidden">
+      <div
+        aria-hidden="true"
+        className="bg-dots-faint pointer-events-none absolute -right-10 top-10 hidden h-72 w-72 opacity-70 [mask-image:radial-gradient(closest-side,black,transparent)] lg:block"
+      />
+      <div className="relative mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
+        <SectionHeading eyebrow="About" title="About Me" />
+        <div className="max-w-3xl">
           <Reveal>
-            <div className="h-full rounded-2xl border border-white/10 bg-white/[0.03] p-6 md:p-8">
-              <div className="mb-4 flex items-center gap-3">
-                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-600/20 text-violet-300">
-                  <User size={18} />
+            <p className="text-base leading-relaxed text-cream/75 md:text-lg">
+              I work on applied artificial intelligence: machine learning, data analysis,
+              and automation. I focus on complete, working systems — clean preprocessing,
+              evaluated models, tested code, and usable interfaces — and I learn by
+              building rather than by theory alone.
+            </p>
+          </Reveal>
+          <Reveal delay={80}>
+            <div className="mt-6 flex flex-wrap gap-2">
+              {strengths.map((s) => (
+                <span
+                  key={s}
+                  className="rounded-full border border-cream/15 px-3 py-1 text-xs text-cream/85"
+                >
+                  {s}
                 </span>
-                <h3 className="text-lg font-semibold text-white">Background</h3>
-              </div>
-              <p className="leading-relaxed text-slate-400">
-                I&apos;m a 2nd-year Computer Science student at the Egyptian Chinese University,
-                specializing in Artificial Intelligence, Data Science, and AI Automation.
-              </p>
-              <p className="mt-4 leading-relaxed text-slate-400">
-                I&apos;m interested in building practical AI-powered solutions, data-driven
-                applications, intelligent agents, and automation systems — learning by building
-                real projects rather than studying theory alone.
-              </p>
+              ))}
             </div>
           </Reveal>
-          <Reveal delay={100}>
-            <div className="h-full rounded-2xl border border-white/10 bg-white/[0.03] p-6 md:p-8">
-              <div className="mb-4 flex items-center gap-3">
-                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-600/20 text-violet-300">
-                  <Compass size={18} />
-                </span>
-                <h3 className="text-lg font-semibold text-white">Current Direction</h3>
-              </div>
-              <p className="leading-relaxed text-slate-400">
-                My main interests are AI Automation, Data Science, Machine Learning, Generative AI,
-                and AI Agents. I&apos;m building a portfolio around practical AI applications and
-                preparing for freelance opportunities involving data analysis, machine learning, AI
-                automation, and AI-powered tools.
-              </p>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {strengths.map((s) => (
-                  <span
-                    key={s}
-                    className="rounded-full border border-violet-500/25 bg-violet-500/10 px-3 py-1 text-xs text-violet-200"
-                  >
-                    {s}
-                  </span>
-                ))}
-              </div>
+          <Reveal delay={120}>
+            <div className="mt-10 border-t border-cream/10 pt-8">
+              <span aria-hidden="true" className="mb-4 block h-1 w-10 bg-mauve/70" />
+              <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-cream">
+                Background
+              </h3>
+              <p className="mt-3 font-semibold text-cream">{journey.education.title}</p>
+              <p className="mt-1 leading-relaxed text-cream/75">{journey.education.detail}</p>
             </div>
           </Reveal>
         </div>

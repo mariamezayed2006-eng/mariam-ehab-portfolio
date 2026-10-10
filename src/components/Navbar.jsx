@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react'
-import { Menu, X, Sparkles } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 
 const links = [
   { href: '#about', label: 'About' },
   { href: '#skills', label: 'Skills' },
   { href: '#projects', label: 'Projects' },
-  { href: '#education', label: 'Education' },
   { href: '#training', label: 'Training' },
   { href: '#services', label: 'Services' },
   { href: '#contact', label: 'Contact' },
@@ -25,33 +24,30 @@ export default function Navbar() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 border-b transition-colors ${
-        scrolled ? 'border-white/10 bg-[#0A0A14]/90 backdrop-blur-md' : 'border-transparent bg-transparent'
+        scrolled ? 'border-cream/10 bg-night/90 backdrop-blur-md' : 'border-transparent bg-transparent'
       }`}
     >
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 md:px-8" aria-label="Main navigation">
-        <a href="#home" className="flex items-center gap-2 font-display text-lg font-bold text-white">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-violet-600">
-            <Sparkles size={16} className="text-white" />
-          </span>
+        <a href="#home" className="font-display text-lg font-bold tracking-tight text-cream">
           Mariam Ehab
         </a>
-        <ul className="hidden items-center gap-6 text-sm text-slate-300 lg:flex">
+        <ul className="hidden items-center gap-6 text-sm text-fog lg:flex">
           {links.map((l) => (
             <li key={l.href}>
-              <a href={l.href} className="transition-colors hover:text-violet-300">
+              <a href={l.href} className="transition-colors hover:text-cream">
                 {l.label}
               </a>
             </li>
           ))}
         </ul>
         <a
-          href="#projects"
-          className="hidden rounded-lg bg-violet-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-violet-500 lg:inline-block"
+          href="#contact"
+          className="hidden rounded-lg bg-cream px-4 py-2 text-sm font-semibold text-night transition-colors hover:bg-mauve lg:inline-block"
         >
-          View Projects
+          Let&apos;s Connect
         </a>
         <button
-          className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 text-slate-200 lg:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded-lg border border-cream/15 bg-night text-cream lg:hidden"
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-label={open ? 'Close menu' : 'Open menu'}
@@ -60,14 +56,14 @@ export default function Navbar() {
         </button>
       </nav>
       {open && (
-        <div className="border-t border-white/10 bg-[#0A0A14]/95 backdrop-blur-md lg:hidden">
+        <div className="border-t border-cream/10 bg-night/95 backdrop-blur-md lg:hidden">
           <ul className="space-y-1 px-5 py-4">
             {links.map((l) => (
               <li key={l.href}>
                 <a
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="block rounded-lg px-3 py-2.5 text-slate-200 hover:bg-white/5 hover:text-white"
+                  className="block rounded-lg px-3 py-2.5 text-cream/85 hover:bg-cream/5 hover:text-cream"
                 >
                   {l.label}
                 </a>

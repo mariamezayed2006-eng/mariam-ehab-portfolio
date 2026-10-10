@@ -12,32 +12,32 @@ export default function ProjectCard({ project, index }) {
   const number = String(index + 1).padStart(2, '0')
 
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#10101E] transition-colors hover:border-violet-500/40">
+    <article className="flex h-full flex-col overflow-hidden rounded-xl border border-cream/10 bg-night/60">
       {project.image ? (
-        <div className="overflow-hidden border-b border-white/10">
+        <div className="overflow-hidden border-b border-cream/10">
           <img src={project.image} alt={`${project.title} preview`} className="h-48 w-full object-cover" loading="lazy" />
         </div>
       ) : null}
 
       <div className="flex flex-1 flex-col p-6 md:p-7">
         <div className="mb-4 flex items-start justify-between gap-4">
-          <span className="font-display text-sm font-bold tracking-widest text-violet-400">{number}</span>
+          <span className="font-display text-sm font-bold tracking-widest text-fog">{number}</span>
           {project.result ? (
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-violet-500/30 bg-violet-500/10 px-3 py-1 text-xs font-medium text-violet-200">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-mauve/40 bg-mauve/10 px-3 py-1 text-xs font-medium text-cream">
               <Award size={13} />
               Evaluated model
             </span>
           ) : null}
         </div>
 
-        <h3 className="text-xl font-bold text-white">{project.title}</h3>
-        <p className="mt-2 text-sm leading-relaxed text-slate-400">{project.summary}</p>
+        <h3 className="text-xl font-bold text-cream">{project.title}</h3>
+        <p className="mt-2 text-sm leading-relaxed text-cream/75">{project.summary}</p>
 
         <div className="mt-4 flex flex-wrap gap-1.5">
           {project.technologies.map((tech) => (
             <span
               key={tech}
-              className="rounded-md bg-violet-600/15 px-2 py-1 text-xs font-medium text-violet-200"
+              className="rounded-md border border-cream/10 bg-cream/[0.06] px-2 py-1 text-xs font-medium text-cream"
             >
               {tech}
             </span>
@@ -45,29 +45,29 @@ export default function ProjectCard({ project, index }) {
         </div>
 
         {project.result ? (
-          <p className="mt-4 rounded-xl border border-cyan-400/20 bg-cyan-400/5 px-4 py-2.5 text-sm text-cyan-200">
+          <p className="mt-4 rounded-lg border border-mauve/40 bg-mauve/10 px-4 py-2.5 text-sm font-medium text-cream">
             {project.result}
           </p>
         ) : null}
 
         {project.dataset ? (
-          <p className="mt-3 inline-flex items-center gap-2 text-xs text-slate-500">
-            <Database size={13} className="text-cyan-300" />
-            Dataset: <span className="font-mono text-slate-300">{project.dataset}</span>
+          <p className="mt-3 inline-flex items-center gap-2 text-xs text-fog">
+            <Database size={13} className="text-lav" />
+            Dataset: <span className="font-mono text-cream/85">{project.dataset}</span>
           </p>
         ) : null}
 
         {project.workflow ? (
           <div className="mt-4" aria-label={`${project.title} workflow`}>
-            <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-slate-500">Workflow</p>
+            <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-fog">Workflow</p>
             <ol className="flex flex-wrap items-center gap-1.5">
               {project.workflow.map((step, i) => (
                 <li key={step} className="flex items-center gap-1.5">
-                  <span className="rounded-lg border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-slate-200">
+                  <span className="rounded-lg border border-cream/10 bg-cream/[0.04] px-2.5 py-1 text-xs text-cream">
                     {step}
                   </span>
                   {i < project.workflow.length - 1 && (
-                    <GitBranch size={12} className="text-cyan-300" aria-hidden="true" />
+                    <GitBranch size={12} className="text-lav" aria-hidden="true" />
                   )}
                 </li>
               ))}
@@ -77,10 +77,10 @@ export default function ProjectCard({ project, index }) {
 
         {project.analyzes ? (
           <div className="mt-4">
-            <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-slate-500">Analyzes</p>
+            <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-fog">Analyzes</p>
             <div className="flex flex-wrap gap-1.5">
               {project.analyzes.map((a) => (
-                <span key={a} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-300">
+                <span key={a} className="rounded-full border border-cream/10 bg-cream/[0.04] px-3 py-1 text-xs text-cream">
                   {a}
                 </span>
               ))}
@@ -90,10 +90,10 @@ export default function ProjectCard({ project, index }) {
 
         <div className={expanded ? 'mt-4' : 'mt-4 hidden'}>
           {expanded && (
-            <ul className="space-y-2 rounded-xl border border-white/5 bg-black/20 p-4">
+            <ul className="space-y-2 rounded-lg border border-cream/10 bg-night/60 p-4">
               {project.features.map((f) => (
-                <li key={f} className="flex items-start gap-2 text-sm text-slate-300">
-                  <Check size={15} className="mt-0.5 shrink-0 text-violet-400" />
+                <li key={f} className="flex items-start gap-2 text-sm text-cream/80">
+                  <Check size={15} className="mt-0.5 shrink-0 text-lav" />
                   {f}
                 </li>
               ))}
@@ -105,7 +105,7 @@ export default function ProjectCard({ project, index }) {
           <button
             onClick={() => setExpanded((v) => !v)}
             aria-expanded={expanded}
-            className="inline-flex min-h-[40px] items-center gap-1.5 rounded-lg bg-violet-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-violet-500"
+            className="inline-flex min-h-[40px] items-center gap-1.5 rounded-lg bg-cream px-4 py-2 text-sm font-semibold text-night transition-colors hover:bg-mauve"
           >
             {expanded ? 'Hide details' : 'View details'}
             <ChevronDown size={15} className={`transition-transform ${expanded ? 'rotate-180' : ''}`} />
@@ -115,7 +115,7 @@ export default function ProjectCard({ project, index }) {
               href={project.github}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex min-h-[40px] items-center gap-1.5 rounded-lg border border-white/15 px-4 py-2 text-sm font-medium text-slate-200 transition-colors hover:border-violet-400/50 hover:text-white"
+              className="inline-flex min-h-[40px] items-center gap-1.5 rounded-lg border border-lav/60 px-4 py-2 text-sm font-medium text-cream transition-colors hover:border-cream"
             >
               <Code2 size={15} />
               Code
@@ -126,7 +126,7 @@ export default function ProjectCard({ project, index }) {
               href={project.demo}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex min-h-[40px] items-center gap-1.5 rounded-lg border border-white/15 px-4 py-2 text-sm font-medium text-slate-200 transition-colors hover:border-violet-400/50 hover:text-white"
+              className="inline-flex min-h-[40px] items-center gap-1.5 rounded-lg border border-lav/60 px-4 py-2 text-sm font-medium text-cream transition-colors hover:border-cream"
             >
               <ExternalLink size={15} />
               Live demo

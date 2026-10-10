@@ -1,98 +1,69 @@
-import { useState } from 'react'
-import { ArrowDown, FolderGit2, Bot } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import Reveal from './Reveal.jsx'
 
-const focusAreas = ['AI Automation', 'Data Science', 'Machine Learning', 'Generative AI', 'AI Agents']
-
-function AvatarSlot() {
-  const [missing, setMissing] = useState(false)
-
-  if (missing) {
-    return (
-      <div
-        className="flex h-24 w-24 items-center justify-center rounded-full border border-violet-500/30 bg-violet-500/10 ring-2 ring-violet-500/20 md:h-32 md:w-32"
-        aria-hidden="true"
-      >
-        <Bot size={30} className="text-violet-300" />
-      </div>
-    )
-  }
-
+function Cross({ className = '' }) {
   return (
-    <img
-      src="/avatar.png"
-      alt="Mariam Ehab — custom 2D avatar"
-      width={128}
-      height={128}
-      className="h-24 w-24 rounded-full object-cover ring-2 ring-violet-500/40 md:h-32 md:w-32"
-      onError={() => setMissing(true)}
-    />
+    <svg width="14" height="14" viewBox="0 0 14 14" className={className} aria-hidden="true">
+      <path d="M7 0v14M0 7h14" stroke="#949AB1" strokeWidth="1.2" />
+    </svg>
   )
 }
 
 export default function Hero() {
   return (
-    <section id="home" className="relative overflow-hidden pt-16">
+    <section id="home" className="relative overflow-hidden border-b border-cream/10 pt-16">
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <div className="absolute -top-32 left-1/3 h-96 w-[42rem] rounded-full bg-violet-700/15 blur-3xl" />
+        <div className="hero-wash absolute inset-0" />
+        <div className="bg-grid-faint mask-fade-edges absolute inset-0" />
+        <Cross className="absolute left-[8%] top-28 hidden opacity-70 md:block" />
+        <Cross className="absolute right-[12%] top-40 hidden opacity-70 md:block" />
+        <Cross className="absolute bottom-24 right-[38%] hidden opacity-70 lg:block" />
       </div>
 
       <div className="relative mx-auto max-w-6xl px-5 pb-20 pt-16 md:px-8 md:pb-28 md:pt-24">
         <Reveal>
-          <AvatarSlot />
+          <p className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.22em] text-fog">
+            <span className="inline-block h-px w-10 bg-mauve" aria-hidden="true" />
+            Mariam Ehab — AI · Data Science · Automation
+          </p>
         </Reveal>
-        <div className="mt-7">
-          <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-violet-300">
-              AI • Data Science • AI Automation
-            </p>
-          </Reveal>
-          <Reveal delay={80}>
-            <h1 className="mt-4 text-5xl font-extrabold leading-[1.05] tracking-tight text-white md:text-7xl">
-              Mariam Ehab
-            </h1>
-            <p className="mt-3 text-2xl font-bold leading-snug text-white md:text-3xl">
-              Building Practical <span className="text-violet-300">AI-Powered Solutions</span>
-            </p>
-          </Reveal>
-          <Reveal delay={160}>
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-400 md:text-lg">
-              Focused on data-driven applications, intelligent agents, and automation systems that
-              solve real problems.
-            </p>
-          </Reveal>
-          <Reveal delay={220}>
-            <div className="mt-6 flex flex-wrap gap-2">
-              {focusAreas.map((area) => (
-                <span
-                  key={area}
-                  className="rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-sm text-slate-300"
-                >
-                  {area}
-                </span>
-              ))}
-            </div>
-          </Reveal>
-          <Reveal delay={280}>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <a
-                href="#projects"
-                className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl bg-violet-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-violet-500"
-              >
-                <FolderGit2 size={18} />
-                View My Projects
-              </a>
-              <a
-                href="#contact"
-                className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-3 font-semibold text-white transition-colors hover:border-violet-400/50 hover:bg-violet-500/10"
-              >
-                Get in Touch
-                <ArrowDown size={18} />
-              </a>
-            </div>
-          </Reveal>
-        </div>
+        <Reveal delay={80}>
+          <h1 className="mt-6 max-w-4xl text-4xl font-extrabold leading-[1.12] tracking-tight text-cream md:text-6xl">
+            Turning AI and data into
+            <br />
+            <span className="text-mauve">practical solutions.</span>
+          </h1>
+        </Reveal>
+        <Reveal delay={160}>
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-cream/75 md:text-lg">
+            I focus on machine learning, data analysis, and automation — building
+            models, analysis tools, and AI agents that solve concrete problems,
+            from preprocessing and evaluation to tested, usable software.
+          </p>
+        </Reveal>
+        <Reveal delay={220}>
+          <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
+            <a
+              href="#contact"
+              className="inline-flex min-h-[48px] items-center justify-center rounded-lg bg-cream px-7 py-3 font-semibold text-night transition-colors hover:bg-mauve"
+            >
+              Let&apos;s Connect
+            </a>
+            <a
+              href="#projects"
+              className="inline-flex min-h-[48px] items-center justify-center gap-1.5 text-sm font-semibold text-fog transition-colors hover:text-cream sm:justify-start"
+            >
+              See selected work
+              <ArrowRight size={16} />
+            </a>
+          </div>
+        </Reveal>
       </div>
+
+      <span
+        aria-hidden="true"
+        className="absolute bottom-0 left-1/2 h-2.5 w-2.5 -translate-x-1/2 translate-y-1/2 rotate-45 border border-lav bg-night"
+      />
     </section>
   )
 }
