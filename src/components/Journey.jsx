@@ -1,4 +1,4 @@
-import { BookOpenCheck } from 'lucide-react'
+import { BookOpenCheck, ExternalLink } from 'lucide-react'
 import SectionHeading from './SectionHeading.jsx'
 import Reveal from './Reveal.jsx'
 import journey from '../data/journey.js'
@@ -20,8 +20,24 @@ export function Training() {
                   <BookOpenCheck size={18} />
                 </span>
                 <div>
-                  <h3 className="text-[15px] font-semibold leading-snug text-cream">{item.title}</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-cream/70">{item.detail}</p>
+                  <h3 className="text-[15px] font-semibold leading-snug text-cream">
+                    {item.href ? (
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1.5 underline decoration-lav/70 underline-offset-4 transition-colors hover:text-mauve"
+                      >
+                        {item.title}
+                        <ExternalLink size={13} aria-hidden="true" />
+                      </a>
+                    ) : (
+                      item.title
+                    )}
+                  </h3>
+                  {item.detail ? (
+                    <p className="mt-1 text-sm leading-relaxed text-cream/70">{item.detail}</p>
+                  ) : null}
                 </div>
               </div>
             </Reveal>

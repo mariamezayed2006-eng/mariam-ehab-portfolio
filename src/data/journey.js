@@ -4,7 +4,11 @@ const journey = {
     detail: '2nd-year student specializing in Artificial Intelligence, Data Science, and AI Automation.',
   },
   training: [
-    { title: 'Enactus' },
+    {
+      title: 'Enactus Egypt',
+      detail: 'Student Team Member',
+      href: 'https://enactusegypt.org/',
+    },
     { title: 'Huawei HCIA-AI', detail: 'AI certification track.' },
     {
       title: 'DEPI — AI / Data Science & AI Automation Track',

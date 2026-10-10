@@ -49,7 +49,7 @@ export default function About() {
             <div className="mt-10 border-t border-cream/10 pt-8">
               <span aria-hidden="true" className="mb-4 block h-1 w-10 bg-mauve/70" />
               <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-cream">
-                Background
+                Education
               </h3>
               <p className="mt-3 font-semibold text-cream">{journey.education.title}</p>
               <p className="mt-1 leading-relaxed text-cream/75">{journey.education.detail}</p>
